@@ -23,7 +23,7 @@ class Posts extends Component {
 
 const Post = ({ post }) => (
   <li>
-    <Link to={`/posts/${post.id}`}>{post.title}</Link>
+    <Link to={`/posts/${post.id}`}>{post.title}</Link> - {post.user.email}
   </li>
 )
 

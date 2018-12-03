@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 
 class Post extends Component {
   state = {
-    post: {}
+    post: {
+      comments: [],
+      user: {}
+    }
   }
 
   componentDidMount() {
@@ -16,10 +19,20 @@ class Post extends Component {
     return (
       <div>
         <h1>{post.title}</h1>
+        <h3>{post.user.email}</h3>
         <p>{post.body}</p>
+        <ul>
+          {post.comments.map((comment) => (
+            <Comment key={comment.id} comment={comment} />
+          ))}
+        </ul>
       </div>
     );
   }
 }
+
+const Comment = ({ comment }) => (
+  <li>{comment.body}</li>
+);
 
 export default Post;

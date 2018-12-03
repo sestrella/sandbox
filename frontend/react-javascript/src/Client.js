@@ -6,11 +6,11 @@ class Client  {
   }
 
   getPosts() {
-    return this.axios.get('posts');
+    return this.axios.get('posts?_expand=user');
   }
 
   getPost(id) {
-    return this.axios.get(`posts/${id}`);
+    return this.axios.get(`posts/${id}?_embed=comments&_expand=user`);
   }
 }
 
