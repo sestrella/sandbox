@@ -2,15 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace webapi-csharp
+namespace webapi_csharp
 {
-    public partial class webapi_csharpContext : DbContext
+    public partial class ApplicationContext : DbContext
     {
-        public webapi_csharpContext()
+        public ApplicationContext()
         {
         }
 
-        public webapi_csharpContext(DbContextOptions<webapi_csharpContext> options)
+        public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
         }
