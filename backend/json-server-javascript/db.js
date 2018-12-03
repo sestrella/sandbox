@@ -7,8 +7,8 @@ module.exports = function() {
       { id: 2, body: faker.random.words(), postId: 2 }
     ],
     posts: [
-      { id: 1, title: faker.name.title() },
-      { id: 2, title: faker.name.title() }
+      { id: 1, title: faker.name.title(), body: faker.random.words() },
+      { id: 2, title: faker.name.title(), body: faker.random.words() }
     ]
   };
 }

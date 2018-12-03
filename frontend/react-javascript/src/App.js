@@ -1,27 +1,20 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import Client from './Client';
+import Post from './components/Post';
 import Posts from './components/Posts';
 
 const App = () => {
   const client = new Client('http://localhost:3001');
   return (
-    <Router>
+    <BrowserRouter>
       <div>
-        <Route path="/posts" render={() => <Posts client={client} />} />
+        <Route path="/posts/:id" render={(props) => <Post client={client} {...props} />} />
+        <Route exact path="/posts" render={(props) => <Posts client={client} {...props} />} />
       </div>
-    </Router>
+    </BrowserRouter>
   );
-}
-
-class Client  {
-  constructor(baseURL) {
-    this.axios = axios.create({ baseURL });
-  }
-
-  getPosts() {
-    return this.axios.get('posts');
-  }
 }
 
 export default App;
